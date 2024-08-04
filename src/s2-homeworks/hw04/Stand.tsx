@@ -12,7 +12,7 @@ const Stand = () => {
 
     return (
         <div id={'hw4-stand'} className={s.stand}>
-            <div className={s.inputs}>
+            <div className={s.inputs} >
                 {/*совместим со старым кодом:*/}
                 <div>
                     <SuperInputText
