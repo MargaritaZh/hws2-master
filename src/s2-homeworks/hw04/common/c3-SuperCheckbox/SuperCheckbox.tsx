@@ -30,6 +30,13 @@ const SuperCheckbox: React.FC<SuperCheckboxPropsType> = (
         // задачка на написание онченджа
         onChange?.(e)
         onChangeChecked?.(e.currentTarget.checked);
+
+        //утрощенный вариант
+        // Функция обратного вызова для события изменения ввода
+        // Вызывается функция onChange, если она существует, передавая ей объект события
+        // onChange && onChange(e);
+        // Вызывается функция onChangeChecked, если она существует, передавая ей текущее состояние флажка (чекбокса) ввода
+        // onChangeChecked && onChangeChecked(e.currentTarget.checked);
     }
 
     const finalInputClassName = s.checkbox
