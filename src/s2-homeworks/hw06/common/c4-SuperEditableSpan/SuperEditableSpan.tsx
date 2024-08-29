@@ -36,24 +36,35 @@ const SuperEditableSpan: React.FC<SuperEditableSpanType> = (
         ...restProps // все остальные пропсы попадут в объект restProps
     }
 ) => {
+
     const [editMode, setEditMode] = useState<boolean>(false)
+
     const {children, onDoubleClick, className, defaultText, ...restSpanProps} =
     spanProps || {}
 
+    // const onEnterCallback = () => {
+    //     // выключить editMode при нажатии Enter // делают студенты
+    //
+    //     onEnter?.()
+    // }
+
     const onEnterCallback = () => {
-        // выключить editMode при нажатии Enter // делают студенты
-
-        onEnter?.()
+        setEditMode(prevEditMode => !prevEditMode); // Переключение режима редактирования
+        if (!editMode) {
+            onEnter?.(); // Вызов колбека, если editMode был выключен
+        }
     }
-    const onBlurCallback = (e: React.FocusEvent<HTMLInputElement>) => {
-        // выключить editMode при нажатии за пределами инпута // делают студенты
 
+    const onBlurCallback = (e: React.FocusEvent<HTMLInputElement>) => {
+        setEditMode(false);
+        //  Выключение режима редактирования editMode при нажатии за пределами инпута // делают студенты
         onBlur?.(e)
     }
     const onDoubleClickCallBack = (
         e: React.MouseEvent<HTMLSpanElement, MouseEvent>
     ) => {
-        // включить editMode при двойном клике // делают студенты
+        setEditMode(true);
+        // Включение режима редактирования editMode при двойном клике // делают студенты
 
         onDoubleClick?.(e)
     }
