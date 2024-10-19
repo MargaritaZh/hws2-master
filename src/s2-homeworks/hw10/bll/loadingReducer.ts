@@ -1,15 +1,9 @@
-export type StateType={
-    isLoading:boolean
-}
-
-
-const initState:StateType = {
+const initState= {
     isLoading: false,
 }
 
 
-
-export const loadingReducer = (state = initState, action: LoadingActionType): StateType => { // fix any
+export const loadingReducer = (state = initState, action: LoadingActionType): typeof initState => { // fix any
     switch (action.type) {
         case "CHANGE_LOADING":{
             return {
