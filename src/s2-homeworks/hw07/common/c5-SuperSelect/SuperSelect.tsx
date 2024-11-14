@@ -40,6 +40,7 @@ const SuperSelect: React.FC<SuperSelectPropsType> = ({
 
         // onChange?.(e);
         // onChangeOption?.(+e.currentTarget.value);
+
         // Если функция onChange определена, вызываем её, передавая событие e
         if (onChange) {
             onChange(e);
